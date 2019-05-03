@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "start": "node bot.js"
+  },
   "name": "greeter-bot",
   "version": "1.0.1",
   "description": "My First Discord Bot",

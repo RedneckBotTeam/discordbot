@@ -53,11 +53,42 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     message: Math.floor((Math.random() * 6) + 1)
                 });
             break;
-                        case 'D100':
+			                        case 'D100':
                 bot.sendMessage({
                     to: channelID,
                     message: Math.floor((Math.random() * 100) + 1)
                 });
+
+            case 'hey':
+                bot.sendMessage({
+                    to: channelID,
+                    message: "<@&707333518581039105> SHOTO!!!!!",
+                    embed: { 
+                        color: 16777215, description:'SHOTO',
+                        image:{
+                            url: "https://pm1.narvii.com/6868/30daee370422836236b911a3fda8f7af47db1230r1-1920-1080v2_uhq.jpg"
+                        }
+                    }});
+                break;
+
+                case 'ShameMe':
+                bot.sendMessage({
+                    to: channelID,
+                    message: "Shame on you",
+                    embed: {
+                        color: 1677, description: 'YOU ARE FRICKIN IDIOT',
+                        image: {
+                            url: "https://i.pinimg.com/originals/b4/01/96/b40196385128d64ba3a111fc61faa054.jpg"
+                        }
+                    }
+                }),
+             bot.addToRole({
+                 "guild_id": 380734703034040331,
+                 "roles": 709533684197228644,
+                 "user": user,
+
+             }
+            )
             break;
          }
      }

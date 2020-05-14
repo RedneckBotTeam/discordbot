@@ -1,5 +1,6 @@
 var Discord = require('discord.io');
 var logger = require('winston');
+// Bot Reads auth.json file to get token
 const dotenv = require('dotenv');
 var auth = require('./auth.json');
 // Configure logger settings
@@ -34,31 +35,34 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     message: 'Pong!'
                 });
             break;
-             // mornin
+        // Welcome command I guess?
             case 'mornin':
                 bot.sendMessage({
                     to: channelID,
                     message: 'Gut mornin'
                 });
             break;
+	// Simulate D10 dice roll
             case 'D10':
                 bot.sendMessage({
                     to: channelID,
                     message: Math.floor((Math.random() * 10) + 1)
                 });
             break;
+	// Simulate D6 dice roll
 			case 'D6':
                 bot.sendMessage({
                     to: channelID,
                     message: Math.floor((Math.random() * 6) + 1)
                 });
             break;
-			                        case 'D100':
+	// Simulate D100 dice roll
+	    case 'D100':
                 bot.sendMessage({
                     to: channelID,
                     message: Math.floor((Math.random() * 100) + 1)
                 });
-
+	// Just annoying ping
             case 'hey':
                 bot.sendMessage({
                     to: channelID,
@@ -70,7 +74,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                         }
                     }});
                 break;
-
+	// Don't work ATM
                 case 'ShameMe':
                 bot.sendMessage({
                     to: channelID,

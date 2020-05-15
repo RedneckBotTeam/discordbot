@@ -49,14 +49,14 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     message: Math.floor((Math.random() * 10) + 1)
                 });
             break;
-	// Simulate D6 dice roll
+	// Simulate D6 dice roll.
 			case 'D6':
                 bot.sendMessage({
                     to: channelID,
                     message: Math.floor((Math.random() * 6) + 1)
                 });
             break;
-	// Simulate D100 dice roll
+	// Simulate D100 dice roll.
 	    case 'D100':
                 bot.sendMessage({
                     to: channelID,

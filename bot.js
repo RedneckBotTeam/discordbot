@@ -75,7 +75,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     }});
                 break;
 	// Don't work ATM
-                case 'ShameMe':
+                case 'PlsHelpMeIamSad':
                 bot.sendMessage({
                     to: channelID,
                     message: "Shame on you",

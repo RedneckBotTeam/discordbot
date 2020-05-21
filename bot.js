@@ -75,24 +75,23 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     }});
                 break;
 	// Don't work ATM
-                case 'PlsHelpMeIamSad':
+                case 'PlsHelpMeIamSad":
                 bot.sendMessage({
                     to: channelID,
-                    message: "Shame on you",
+                    message: "<@&707333518581039105> Shame on you",
                     embed: {
-                        color: 1677, description: 'YOU ARE FRICKIN IDIOT',
+                        color: 1677215, description: 'YOU ARE FRICKIN IDIOT',
                         image: {
                             url: "https://i.pinimg.com/originals/b4/01/96/b40196385128d64ba3a111fc61faa054.jpg"
                         }
                     }
-                }),
+                });
              bot.addToRole({
                  "guild_id": 380734703034040331,
                  "roles": 709533684197228644,
                  "user": user,
 
-             }
-            )
+	     })
             break;
          }
      }

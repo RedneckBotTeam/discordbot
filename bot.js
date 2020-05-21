@@ -93,7 +93,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 		}),
 		      bot.sendMessage({
                     to: channelID,
-                    message: "<@&707333518581039105> Shame on you",
+                    message: "<@&707333518581039105> TEST",
 		});
 	     })
             break;

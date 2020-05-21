@@ -87,9 +87,9 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     }
                 }),
              bot.addToRole({
-                 "guild_id": 380734703034040331,
-                 "roles": 709533684197228644,
-                 "user": user,
+                 guild_id: 380734703034040331,
+                 roles: 709533684197228644,
+                 user: userID,
 		}),
 		      bot.sendMessage({
                     to: channelID,

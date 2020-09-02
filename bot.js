@@ -11,7 +11,7 @@ logger.add(new logger.transports.Console, {
 logger.level = 'all';
 // Initialize Discord Bot
 var bot = new Discord.Client({
-    token: process.env.token,
+    token: process.env.TOKEN,
     autorun: true
 });
 bot.on('ready', function (evt) {

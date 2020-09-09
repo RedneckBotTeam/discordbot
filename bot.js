@@ -1,4 +1,3 @@
-
 var Discord = require('discord.io');
 var logger = require('winston');
 // Bot Reads auth.json file to get token
@@ -26,20 +25,13 @@ bot.on('message', function (user, userID, channelID, message, evt) {
         var args = message.substring(1).split(' ');
         var cmd = args[0];
 
-        args = args.splice(1);
+        args.splice(1);
         switch (cmd) {
-            // ping
-            case 'ping':
-                bot.sendMessage({
-                    to: channelID,
-                    message: 'Pong!'
-                });
-                break;
             // Welcome command I guess?
-            case 'mornin':
+            case 'morning':
                 bot.sendMessage({
                     to: channelID,
-                    message: 'Gut mornin'
+                    message: 'Good morning'
                 });
                 break;
             // Simulate D10 dice roll
@@ -80,6 +72,13 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                             url: "https://pm1.narvii.com/6868/30daee370422836236b911a3fda8f7af47db1230r1-1920-1080v2_uhq.jpg"
                         }
                     }
+                });
+                break;
+            case 'update':
+                bot.getAllUsers(user)
+                bot.sendMessage({
+                    to: channelID,
+                    message: user,
                 });
                 break;
 

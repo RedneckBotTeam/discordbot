@@ -8,14 +8,14 @@ client.login(config.token);
 client.on('ready', () => {
     console.log('I am ready!');
 });
-/*client.on('guildMemberAdd', member => {
+client.on('guildMemberAdd', member => {
     // Send the message to a designated channel on a server:
     const channel = member.guild.channels.cache.find(ch => ch.name === 'welcome');
     // Do nothing if the channel wasn't found on this server
     if (!channel) return;
     // Send the message, mentioning the member
     channel.send(`Witaj ${member}, zaakceptuj regulamin aby kontynuować`);
-});*/
+});
 client.on('message', message => {
     // If the message is "what is my avatar"
     switch (message.content) {

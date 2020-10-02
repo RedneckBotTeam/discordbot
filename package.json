@@ -1,0 +1,26 @@
+{
+  "name": "discordbot",
+  "version": "1.0.0",
+  "description": "Discord bot made with Discord.js",
+  "main": "bot.js",
+  "scripts": {
+    "test": "node bot.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Coyotescorp/discordbot.git"
+  },
+  "keywords": [
+    "JS"
+  ],
+  "author": "pencivecoyote19",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Coyotescorp/discordbot/issues"
+  },
+  "homepage": "https://github.com/Coyotescorp/discordbot#readme",
+  "dependencies": {
+    "discord.js": "^12.3.1",
+    "dotenv": "^8.2.0"
+  }
+}

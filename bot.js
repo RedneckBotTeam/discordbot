@@ -1,88 +1,44 @@
-var Discord = require('discord.io');
-var logger = require('winston');
-// Bot Reads auth.json file to get token
-const dotenv = require('dotenv');
-// Configure logger settings
-logger.remove(logger.transports.Console);
-logger.add(new logger.transports.Console, {
-    colorize: true
-});
-logger.level = 'all';
-// Initialize Discord Bot
-var bot = new Discord.Client({
-    token: process.env.TOKEN,
-    autorun: true
-});
-bot.on('ready', function (evt) {
-    logger.info('Connected');
-    logger.info('Logged in as: ');
-    logger.info(bot.username + ' - (' + bot.id + ')');
-});
-bot.on('message', function (user, userID, channelID, message, evt) {
-    // Our bot needs to know if it will execute a command
-    // It will listen for messages that will start with `*`
-    if (message.substring(0, 1) == '*') {
-        var args = message.substring(1).split(' ');
-        var cmd = args[0];
+require('dotenv');
+const Discord = require('discord.js');
+const config = require('./config.json');
+const prefix = config.prefix;
+const client = new Discord.Client();
 
-        args.splice(1);
-        switch (cmd) {
-            // Welcome command I guess?
-            case 'morning':
-                bot.sendMessage({
-                    to: channelID,
-                    message: 'Good morning'
-                });
-                break;
-            // Simulate D10 dice roll
-            case 'D10':
-                bot.sendMessage({
-                    to: channelID,
-                    message: Math.floor((Math.random() * 10) + 1)
-                });
-                break;
-            // Simulate D6 dice roll.
-            case 'D6':
-                bot.sendMessage({
-                    to: channelID,
-                    message: Math.floor((Math.random() * 6) + 1)
-                });
-                break;
-            // Simulate D100 dice roll.
-            case 'D100':
-                bot.sendMessage({
-                    to: channelID,
-                    message: Math.floor((Math.random() * 100) + 1)
-                });
-                break;
-           /* case 'test':
-                bot.addToRole({
-                    userID: 516201569838956552,
-                    roleID: 738737631780667453,
-                });
-                break;*/
-            // Just annoying ping
-            case 'hey':
-                bot.sendMessage({
-                    to: channelID,
-                    message: "<@&707333518581039105> SHOTO!!!!!",
-                    embed: {
-                        color: 16777215, description: 'SHOTO',
-                        image: {
-                            url: "https://pm1.narvii.com/6868/30daee370422836236b911a3fda8f7af47db1230r1-1920-1080v2_uhq.jpg"
-                        }
-                    }
-                });
-                break;
-            case 'update':
-                bot.getAllUsers(user)
-                bot.sendMessage({
-                    to: channelID,
-                    message: user,
-                });
-                break;
-
-
-        }
+client.login(config.token);
+client.on('ready', () => {
+    console.log('I am ready!');
+});
+/*client.on('guildMemberAdd', member => {
+    // Send the message to a designated channel on a server:
+    const channel = member.guild.channels.cache.find(ch => ch.name === 'welcome');
+    // Do nothing if the channel wasn't found on this server
+    if (!channel) return;
+    // Send the message, mentioning the member
+    channel.send(`Witaj ${member}, zaakceptuj regulamin aby kontynuować`);
+});*/
+client.on('message', message => {
+    // If the message is "what is my avatar"
+    switch (message.content) {
+        case prefix+'what is my avatar?': // Send the user's avatar URL
+            message.reply(message.author.displayAvatarURL());
+            break;
+        case prefix+'U stupid': //no U
+            message.reply('No U.');
+            break;
+        case prefix+'D10': // Simulate D10 dice roll
+            message.reply(Math.floor((Math.random() * 10) + 1));
+            break;
+        case prefix+'D100': // Simulate D10 dice roll
+            message.reply(Math.floor((Math.random() * 100) + 1));
+            break;
+        case prefix+'D20': // Simulate D10 dice roll
+            message.reply(Math.floor((Math.random() * 20) + 1));
+            break;
+        case prefix+'weryfikacja':
+            // Send a basic message
+            channel.send('Aby zweryfikować kliknij ✅')
+                .catch(console.error);
+            message.react('✅');
+            break;
     }
 });

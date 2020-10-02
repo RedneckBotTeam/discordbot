@@ -1,15 +1,26 @@
 {
-  "scripts": {
-    "start": "node bot.js"
-  },
-  "name": "greeter-bot",
-  "version": "1.0.1",
-  "description": "My First Discord Bot",
+  "name": "discordbot",
+  "version": "1.0.0",
+  "description": "Discord bot made with Discord.js",
   "main": "bot.js",
-  "author": "Pencivecoyote19",
+  "scripts": {
+    "test": "node bot.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Coyotescorp/discordbot.git"
+  },
+  "keywords": [
+    "JS"
+  ],
+  "author": "pencivecoyote19",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Coyotescorp/discordbot/issues"
+  },
+  "homepage": "https://github.com/Coyotescorp/discordbot#readme",
   "dependencies": {
-    "discord.io": "https://github.com/woor/discord.io/tarball/gateway_v6",
-    "dotenv": "^8.2.0",
-    "winston": "^3.2.1"
+    "discord.js": "^12.3.1",
+    "dotenv": "^8.2.0"
   }
 }

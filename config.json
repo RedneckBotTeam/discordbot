@@ -1,4 +1,5 @@
 {
-  "token": "yourbottoken",
-  "prefix": "yourprefix"
+  "token": "token",
+  "prefix": "prefix",
+  "color": "color"
 }

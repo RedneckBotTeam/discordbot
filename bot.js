@@ -2,27 +2,111 @@ require('dotenv');
 const Discord = require('discord.js');
 const config = require('./config.json');
 const prefix = config.prefix;
+const color = config.color;
 const client = new Discord.Client();
 const embed = new Discord.MessageEmbed({
     title: 'WERYFIKACJA',
     description: 'Aby odblokować podstawowe uprawnienia użytkownika które pozwolą ci między innymi pisać na kanale #general,\n' +
         'pozostaw reakcje weryfikacji jeśli zapoznałeś się z naszym regulaminem.',
 
-}).setColor('#29db0c');
+}).setColor(color);
+const embed1 = new Discord.MessageEmbed({
+    title: 'GENDER:',
+    description: '♂ - BOY\n' +
+        '♀ - GIRL',
 
+}).setColor(color);
+const embed2 = new Discord.MessageEmbed({
+    title: 'GAMES:',
+    description: '🧡 - CS:GO\n' +
+        ' 🤎 - Hurtworld\n' +
+        ' 🤍 - Valorant\n' +
+        ' 💚 - Minecraft\n' +
+        ' 💙 - League of Legends\n' +
+        '🐲 - ARK\n' +
+        ' ❤ - Metin2',
+
+}).setColor(color);
+const embed3 = new Discord.MessageEmbed({
+    title: 'REGION:',
+    description: '🐶 - Dolnośląskie\n' +
+        '🐱 - Kujawsko-Pomorskie\n' +
+        '🐭 - Lubelskie\n' +
+        '🐹 - Lubuskie\n' +
+        '🐰 - Łódzkie\n' +
+        '🦊 - Małopolskie\n' +
+        '🐻 - Opolskie\n' +
+        '🐼 - Podkarpackie\n' +
+        '🐨 - Podlaskie\n' +
+        '🐯 - Pomorskie\n' +
+        '🦁 - Śląskie\n' +
+        '🐮 - Świętokrzyskie\n' +
+        '🐷 - Warmińsko-Mazurskie\n' +
+        '🐸 - Wielkopolskie\n' +
+        '🐵 - Zachodniopomorskie\n' +
+        '🐔 - Mazowieckie',
+
+}).setColor(color);
+const embed4 = new Discord.MessageEmbed({
+    title: 'AGE:',
+    description: '🇦 - 5-10\n' +
+        '🇧 - 10-12\n' +
+        '🇨 - 12-14\n' +
+        '🇩 - 14-16\n' +
+        '🇪 - 16-18\n' +
+        '🇫 - 18-20\n' +
+        '🇬 - 20-25\n' +
+        '🇭 - 25-30\n' +
+        '🇮 - 30+'
+
+}).setColor(color);
 client.login(config.token).catch(console.error);
 client.on('ready', () => {
     console.log('I am ready!');
-    client.channels.cache.get('753313118305779839').send(embed).then(sentembed => sentembed.react("✅"));
+    client.channels.cache.get('753313118305779839').send(embed).then(sentembed => sentembed.react('✅'));
+    client.channels.cache.get('766765358144421899').send(embed1).then(sentembed1 =>{
+        sentembed1.react('♂')
+        sentembed1.react('♀')
+    });
+    client.channels.cache.get('766765358144421899').send(embed2).then(sentembed2 =>{
+        sentembed2.react('🧡')
+        sentembed2.react('🤎')
+        sentembed2.react('🤍')
+        sentembed2.react('💚')
+        sentembed2.react('💙')
+        sentembed2.react('🐲')
+        sentembed2.react('❤')
+    });
+    client.channels.cache.get('766765358144421899').send(embed3).then(sentembed3 =>{
+        sentembed3.react('🐶')
+        sentembed3.react('🐱')
+        sentembed3.react('🐭')
+        sentembed3.react('🐹')
+        sentembed3.react('🐰')
+        sentembed3.react('🦊')
+        sentembed3.react('🐻')
+        sentembed3.react('🐼')
+        sentembed3.react('🐨')
+        sentembed3.react('🐯')
+        sentembed3.react('🦁')
+        sentembed3.react('🐮')
+        sentembed3.react('🐷')
+        sentembed3.react('🐸')
+        sentembed3.react('🐵')
+        sentembed3.react('🐔')
+    });
+    client.channels.cache.get('766765358144421899').send(embed4).then(sentembed4 =>{
+        sentembed4.react('🇦')
+        sentembed4.react('🇧')
+        sentembed4.react('🇨')
+        sentembed4.react('🇩')
+        sentembed4.react('🇪')
+        sentembed4.react('🇫')
+        sentembed4.react('🇬')
+        sentembed4.react('🇭')
+        sentembed4.react('🇮')
+    });
 });
-/*client.on('guildMemberAdd', member => {
-    // Send the message to a designated channel on a server:
-    channel = member.guild.channels.cache.find(ch => ch.name === 'welcome');
-    // Do nothing if the channel wasn't found on this server
-    if (!channel) return;
-    // Send the message, mentioning the member
-    channel.send(`Witaj ${member}, zaakceptuj regulamin aby kontynuować`);
-});*/
 client.on('messageReactionAdd', async (reactionReaction, user) => {
 
     const message = reactionReaction.message;

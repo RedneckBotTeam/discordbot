@@ -64,11 +64,11 @@ client.login(config.token).catch(console.error);
 client.on('ready', () => {
     console.log('I am ready!');
     client.channels.cache.get('753313118305779839').send(embed).then(sentembed => sentembed.react('✅'));
-    client.channels.cache.get('766765358144421899').send(embed1).then(sentembed1 =>{
+    client.channels.cache.get('766765358144421899').send(embed1).then(sentembed1 => {
         sentembed1.react('♂')
         sentembed1.react('♀')
     });
-    client.channels.cache.get('766765358144421899').send(embed2).then(sentembed2 =>{
+    client.channels.cache.get('766765358144421899').send(embed2).then(sentembed2 => {
         sentembed2.react('🧡')
         sentembed2.react('🤎')
         sentembed2.react('🤍')
@@ -77,7 +77,7 @@ client.on('ready', () => {
         sentembed2.react('🐲')
         sentembed2.react('❤')
     });
-    client.channels.cache.get('766765358144421899').send(embed3).then(sentembed3 =>{
+    client.channels.cache.get('766765358144421899').send(embed3).then(sentembed3 => {
         sentembed3.react('🐶')
         sentembed3.react('🐱')
         sentembed3.react('🐭')
@@ -95,7 +95,7 @@ client.on('ready', () => {
         sentembed3.react('🐵')
         sentembed3.react('🐔')
     });
-    client.channels.cache.get('766765358144421899').send(embed4).then(sentembed4 =>{
+    client.channels.cache.get('766765358144421899').send(embed4).then(sentembed4 => {
         sentembed4.react('🇦')
         sentembed4.react('🇧')
         sentembed4.react('🇨')
@@ -121,7 +121,7 @@ client.on('messageReactionAdd', async (reactionReaction, user) => {
 
     }
 });
-client.on('messageReactionRemove', async (reactionReaction,user) => {
+client.on('messageReactionRemove', async (reactionReaction, user) => {
 
     const message = reactionReaction.message;
     const member = message.guild.members.cache.get(user.id);
@@ -134,36 +134,36 @@ client.on('messageReactionRemove', async (reactionReaction,user) => {
 client.on('message', message => {
     // If the message is "what is my avatar"
     switch (message.content) {
-        case prefix+'what is my avatar?': // Send the user's avatar URL
+        case prefix + 'what is my avatar?': // Send the user's avatar URL
             message.reply(message.author.displayAvatarURL()).catch(console.error);
             break;
-        case prefix+'U stupid': //no U
+        case prefix + 'U stupid': //no U
             message.reply('No U.').catch(console.error);
             break;
-        case prefix+'D10': // Simulate D10 dice roll
+        case prefix + 'D10': // Simulate D10 dice roll
             message.reply(Math.floor((Math.random() * 10) + 1)).catch(console.error);
             break;
-        case prefix+'D100': // Simulate D10 dice roll
+        case prefix + 'D100': // Simulate D10 dice roll
             message.reply(Math.floor((Math.random() * 100) + 1)).catch(console.error);
             break;
-        case prefix+'D20': // Simulate D10 dice roll
+        case prefix + 'D20': // Simulate D10 dice roll
             message.reply(Math.floor((Math.random() * 20) + 1)).catch(console.error);
             break;
-        case prefix+'clean': //cleans cache
+        case prefix + 'clean': //cleans cache
             const amount = client.sweepMessages(2000);
             console.log(`Successfully removed ${amount} messages from the cache.`);
             break;
-        case prefix+'sleep': //update presence
+        case prefix + 'sleep': //update presence
             client.user.setStatus('dnd')
                 .then(console.log)
                 .catch(console.error);
             break;
-        case prefix+'wake': //update presence
+        case prefix + 'wake': //update presence
             client.user.setStatus('online')
                 .then(console.log)
                 .catch(console.error);
             break;
-        case prefix+'ark': //update presence
+        case prefix + 'ark': //update presence
             client.user.setActivity('ARK: Survival Evolved', {
                 type: 'PLAYING'
             })
@@ -171,7 +171,7 @@ client.on('message', message => {
                 .catch(console.error);
             break;
 
-        case prefix+'help': //dm help
+        case prefix + 'help': //dm help
             message.author.send("hello").catch(console.error);
             break;
     }

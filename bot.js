@@ -23,7 +23,7 @@ const embed2 = new Discord.MessageEmbed({
         ' 🤍 - Valorant\n' +
         ' 💚 - Minecraft\n' +
         ' 💙 - League of Legends\n' +
-        '🐲 - ARK\n' +
+        ' 🐲 - ARK\n' +
         ' ❤ - Metin2',
 
 }).setColor(color);
@@ -63,7 +63,7 @@ const embed4 = new Discord.MessageEmbed({
 client.login(config.token).catch(console.error);
 client.on('ready', () => {
     console.log('I am ready!');
-    client.channels.cache.get('753313118305779839').send(embed).then(sentembed => sentembed.react('✅'));
+    client.channels.cache.get('766765358144421899').send(embed).then(sentembed => sentembed.react('✅'));
     client.channels.cache.get('766765358144421899').send(embed1).then(sentembed1 => {
         sentembed1.react('♂')
         sentembed1.react('♀')
@@ -109,28 +109,264 @@ client.on('ready', () => {
 });
 client.on('messageReactionAdd', async (reactionReaction, user) => {
 
-    const message = reactionReaction.message;
-    const verifyChannel = message.guild.channels.cache.find(c => c.name === 'rules-register');
-    const member = message.guild.members.cache.get(user.id);
+    var message = reactionReaction.message;
+    var verifyChannel = message.guild.channels.cache.find(c => c.name === 'roles-and-register');
+    var member = message.guild.members.cache.get(user.id);
     if (member.user.bot) return;
-    const verify = message.guild.roles.cache.get('761681820735373322');
 
 
-    if (reactionReaction.emoji.name === '✅' && message.channel.id === verifyChannel.id) {
-        member.roles.add(verify).catch(console.error);
-
-    }
-});
+    if (message.channel.id === verifyChannel.id) {
+        switch (reactionReaction.emoji.name) {
+            case '✅':
+                member.roles.add(message.guild.roles.cache.get('761681820735373322')).catch(console.error);
+                break;
+            case '♂':
+                member.roles.add(message.guild.roles.cache.get('772560917690974259')).catch(console.error);
+                break;
+            case '♀':
+                member.roles.add(message.guild.roles.cache.get('772561048754323539')).catch(console.error);
+                break;
+            case '🧡':
+                member.roles.add(message.guild.roles.cache.get('772561139816202260')).catch(console.error);
+                break;
+            case '🤎':
+                member.roles.add(message.guild.roles.cache.get('772561188402888746')).catch(console.error);
+                break;
+            case '🤍':
+                member.roles.add(message.guild.roles.cache.get('772561189380423681')).catch(console.error);
+                break;
+            case '💚':
+                member.roles.add(message.guild.roles.cache.get('772561190571737098')).catch(console.error);
+                break;
+            case '💙':
+                member.roles.add(message.guild.roles.cache.get('772561191897399306')).catch(console.error);
+                break;
+            case '🐲':
+                member.roles.add(message.guild.roles.cache.get('772561192924610560')).catch(console.error);
+                break;
+            case '❤':
+                member.roles.add(message.guild.roles.cache.get('772561193696493568')).catch(console.error);
+                break;
+// Region
+            case '🐶':
+                member.roles.add(message.guild.roles.cache.get('772561356820840479')).catch(console.error);
+                break;
+            case '🐱':
+                member.roles.add(message.guild.roles.cache.get('772561360529784913')).catch(console.error);
+                break;
+            case '🐭':
+                member.roles.add(message.guild.roles.cache.get('772561361666441237')).catch(console.error);
+                break;
+            case '🐹':
+                member.roles.add(message.guild.roles.cache.get('772561363377324092')).catch(console.error);
+                break;
+            case '🐰':
+                member.roles.add(message.guild.roles.cache.get('772561364077903882')).catch(console.error);
+                break;
+            case '🦊':
+                member.roles.add(message.guild.roles.cache.get('772561599059329035')).catch(console.error);
+                break;
+            case '🐻':
+                member.roles.add(message.guild.roles.cache.get('772561600100040724')).catch(console.error);
+                break;
+            case '🐼':
+                member.roles.add(message.guild.roles.cache.get('772561601848016896')).catch(console.error);
+                break;
+            case '🐨':
+                member.roles.add(message.guild.roles.cache.get('772561602489876500')).catch(console.error);
+                break;
+            case '🐯':
+                member.roles.add(message.guild.roles.cache.get('772561603261366333')).catch(console.error);
+                break;
+            case '🦁':
+                member.roles.add(message.guild.roles.cache.get('772561604155408405')).catch(console.error);
+                break;
+            case '🐮':
+                member.roles.add(message.guild.roles.cache.get('772561605031362570')).catch(console.error);
+                break;
+            case '🐷':
+                member.roles.add(message.guild.roles.cache.get('772561605417762870')).catch(console.error);
+                break;
+            case '🐸':
+                member.roles.add(message.guild.roles.cache.get('772561606278250518')).catch(console.error);
+                break;
+            case '🐵':
+                member.roles.add(message.guild.roles.cache.get('772562008289574962')).catch(console.error);
+                break;
+            case '🐔':
+                member.roles.add(message.guild.roles.cache.get('772562012265775125')).catch(console.error);
+                break;
+//Age
+            case '🇦':
+                member.roles.add(message.guild.roles.cache.get('772562039158603856')).catch(console.error);
+                break;
+            case '🇧':
+                member.roles.add(message.guild.roles.cache.get('772562040053170176')).catch(console.error);
+                break;
+            case '🇨':
+                member.roles.add(message.guild.roles.cache.get('772562200236785682')).catch(console.error);
+                break;
+            case '🇩':
+                member.roles.add(message.guild.roles.cache.get('772562201042092033')).catch(console.error);
+                break;
+            case '🇪':
+                member.roles.add(message.guild.roles.cache.get('772562202112163870')).catch(console.error);
+                break;
+            case '🇫':
+                member.roles.add(message.guild.roles.cache.get('772562270215471134')).catch(console.error);
+                break;
+            case '🇬':
+                member.roles.add(message.guild.roles.cache.get('772562274170830868')).catch(console.error);
+                break;
+            case '🇭':
+                member.roles.add(message.guild.roles.cache.get('772562367921651744')).catch(console.error);
+                break;
+            case '🇮':
+                member.roles.add(message.guild.roles.cache.get('772562386141184010')).catch(console.error);
+                break;
+        }
+    }});
 client.on('messageReactionRemove', async (reactionReaction, user) => {
 
-    const message = reactionReaction.message;
-    const member = message.guild.members.cache.get(user.id);
+    var message = reactionReaction.message;
+    var verifyChannel = message.guild.channels.cache.find(c => c.name === 'roles-and-register');
+    var member = message.guild.members.cache.get(user.id);
     if (member.user.bot) return;
-    const verify = message.guild.roles.cache.get('761681820735373322');
-    member.roles.remove(verify).catch(console.error);
 
+    if (message.channel.id === verifyChannel.id) {
+        switch (reactionReaction.emoji.name) {
+            case '✅':
+                member.roles.remove(message.guild.roles.cache.get('761681820735373322')).catch(console.error);
+                break;
+            case '♂':
+                member.roles.remove(message.guild.roles.cache.get('772560917690974259')).catch(console.error);
+                break;
+            case '♀':
+                member.roles.remove(message.guild.roles.cache.get('772561048754323539')).catch(console.error);
+                break;
+            case '🧡':
+                member.roles.remove(message.guild.roles.cache.get('772561139816202260')).catch(console.error);
+                break;
+            case '🤎':
+                member.roles.remove(message.guild.roles.cache.get('772561188402888746')).catch(console.error);
+                break;
+            case '🤍':
+                member.roles.remove(message.guild.roles.cache.get('772561189380423681')).catch(console.error);
+                break;
+            case '💚':
+                member.roles.remove(message.guild.roles.cache.get('772561190571737098')).catch(console.error);
+                break;
+            case '💙':
+                member.roles.remove(message.guild.roles.cache.get('772561191897399306')).catch(console.error);
+                break;
+            case '🐲':
+                member.roles.remove(message.guild.roles.cache.get('772561192924610560')).catch(console.error);
+                break;
+            case '❤':
+                member.roles.remove(message.guild.roles.cache.get('772561193696493568')).catch(console.error);
+                break;
+// Region
+            case '🐶':
+                member.roles.remove(message.guild.roles.cache.get('772561356820840479')).catch(console.error);
+                break;
+            case '🐱':
+                member.roles.remove(message.guild.roles.cache.get('772561360529784913')).catch(console.error);
+                break;
+            case '🐭':
+                member.roles.remove(message.guild.roles.cache.get('772561361666441237')).catch(console.error);
+                break;
+            case '🐹':
+                member.roles.remove(message.guild.roles.cache.get('772561363377324092')).catch(console.error);
+                break;
+            case '🐰':
+                member.roles.remove(message.guild.roles.cache.get('772561364077903882')).catch(console.error);
+                break;
+            case '🦊':
+                member.roles.remove(message.guild.roles.cache.get('772561599059329035')).catch(console.error);
+                break;
+            case '🐻':
+                member.roles.remove(message.guild.roles.cache.get('772561600100040724')).catch(console.error);
+                break;
+            case '🐼':
+                member.roles.remove(message.guild.roles.cache.get('772561601848016896')).catch(console.error);
+                break;
+            case '🐨':
+                member.roles.remove(message.guild.roles.cache.get('772561602489876500')).catch(console.error);
+                break;
+            case '🐯':
+                member.roles.remove(message.guild.roles.cache.get('772561603261366333')).catch(console.error);
+                break;
+            case '🦁':
+                member.roles.remove(message.guild.roles.cache.get('772561604155408405')).catch(console.error);
+                break;
+            case '🐮':
+                member.roles.remove(message.guild.roles.cache.get('772561605031362570')).catch(console.error);
+                break;
+            case '🐷':
+                member.roles.remove(message.guild.roles.cache.get('772561605417762870')).catch(console.error);
+                break;
+            case '🐸':
+                member.roles.remove(message.guild.roles.cache.get('772561606278250518')).catch(console.error);
+                break;
+            case '🐵':
+                member.roles.remove(message.guild.roles.cache.get('772562008289574962')).catch(console.error);
+                break;
+            case '🐔':
+                member.roles.remove(message.guild.roles.cache.get('772562012265775125')).catch(console.error);
+                break;
+//Age
+            case '🇦':
+                member.roles.remove(message.guild.roles.cache.get('772562039158603856')).catch(console.error);
+                break;
+            case '🇧':
+                member.roles.remove(message.guild.roles.cache.get('772562040053170176')).catch(console.error);
+                break;
+            case '🇨':
+                member.roles.remove(message.guild.roles.cache.get('772562200236785682')).catch(console.error);
+                break;
+            case '🇩':
+                member.roles.remove(message.guild.roles.cache.get('772562201042092033')).catch(console.error);
+                break;
+            case '🇪':
+                member.roles.remove(message.guild.roles.cache.get('772562202112163870')).catch(console.error);
+                break;
+            case '🇫':
+                member.roles.remove(message.guild.roles.cache.get('772562270215471134')).catch(console.error);
+                break;
+            case '🇬':
+                member.roles.remove(message.guild.roles.cache.get('772562274170830868')).catch(console.error);
+                break;
+            case '🇭':
+                member.roles.remove(message.guild.roles.cache.get('772562367921651744')).catch(console.error);
+                break;
+            case '🇮':
+                member.roles.remove(message.guild.roles.cache.get('772562386141184010')).catch(console.error);
+                break;
+        }
 
-});
+    }});
+
+client.on('guildMemberAdd', member => {
+    if(member.guild.id !== '753310847635292250') return;
+    client.channels.cache.get('805169865937256448');
+    console.log(`Uzytkownikow: ${member.guild.memberCount}`);
+    client.channels.cache.get('805169880403673108').setName(`Online: ${member.guild.members.cache.filter(m => !m.user.bot).size}`);
+})
+client.on('guildMemberRemove', member => {
+    if(member.guild.id !== '753310847635292250') return;
+    client.channels.cache.get('753310847635292250').setName(`Uzytkownikow: ${member.guild.memberCount}`);
+    client.channels.cache.get('805169880403673108').setName(`Online: ${member.guild.members.cache.filter(m => !m.user.bot).size}`);
+})
+/*
+client.on('guildMemberAdd', member => {
+    // Send the message to a designated channel on a server:
+    const channel = member.guild.channels.cache.find(ch => ch.name === 'welcome');
+    // Do nothing if the channel wasn't found on this server
+    if (!channel) return;
+    // Send the message, mentioning the member
+    channel.send(`Welcome to the server, ${member}`);
+});*/
+
 client.on('message', message => {
     // If the message is "what is my avatar"
     switch (message.content) {

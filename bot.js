@@ -69,42 +69,25 @@ client.on('ready', () => {
         sentembed1.react('♀')
     });
     client.channels.cache.get('766765358144421899').send(embed2).then(sentembed2 => {
-        sentembed2.react('🧡')
-        sentembed2.react('🤎')
-        sentembed2.react('🤍')
-        sentembed2.react('💚')
-        sentembed2.react('💙')
-        sentembed2.react('🐲')
-        sentembed2.react('❤')
+        var gry = ['🧡','🤎','🤍','💚','💙','🐲','❤'];
+
+        for(var i = 0; i<gry.length; i++){
+            sentembed2.react(gry[i]);
+        }
     });
     client.channels.cache.get('766765358144421899').send(embed3).then(sentembed3 => {
-        sentembed3.react('🐶')
-        sentembed3.react('🐱')
-        sentembed3.react('🐭')
-        sentembed3.react('🐹')
-        sentembed3.react('🐰')
-        sentembed3.react('🦊')
-        sentembed3.react('🐻')
-        sentembed3.react('🐼')
-        sentembed3.react('🐨')
-        sentembed3.react('🐯')
-        sentembed3.react('🦁')
-        sentembed3.react('🐮')
-        sentembed3.react('🐷')
-        sentembed3.react('🐸')
-        sentembed3.react('🐵')
-        sentembed3.react('🐔')
+        var region = ['🐶','🐱','🐭','🐹','🐰','🦊','🐻','🐼','🐨','🐯','🦁','🐮','🐷','🐸','🐵','🐔'];
+
+        for(var i = 0; i<region.length; i++){
+            sentembed3.react(region[i]);
+        }
     });
     client.channels.cache.get('766765358144421899').send(embed4).then(sentembed4 => {
-        sentembed4.react('🇦')
-        sentembed4.react('🇧')
-        sentembed4.react('🇨')
-        sentembed4.react('🇩')
-        sentembed4.react('🇪')
-        sentembed4.react('🇫')
-        sentembed4.react('🇬')
-        sentembed4.react('🇭')
-        sentembed4.react('🇮')
+        var age = ['🇦','🇧','🇨','🇩','🇪','🇫','🇬','🇭','🇮'];
+
+        for(var i = 0; i<age.length; i++){
+            sentembed4.react(age[i]);
+        }
     });
 });
 client.on('messageReactionAdd', async (reactionReaction, user) => {
@@ -113,8 +96,6 @@ client.on('messageReactionAdd', async (reactionReaction, user) => {
     var verifyChannel = message.guild.channels.cache.find(c => c.name === 'roles-and-register');
     var member = message.guild.members.cache.get(user.id);
     if (member.user.bot) return;
-
-
     if (message.channel.id === verifyChannel.id) {
         switch (reactionReaction.emoji.name) {
             case '✅':
@@ -346,26 +327,6 @@ client.on('messageReactionRemove', async (reactionReaction, user) => {
 
     }});
 
-client.on('guildMemberAdd', member => {
-    if(member.guild.id !== '753310847635292250') return;
-    client.channels.cache.get('805169865937256448');
-    console.log(`Uzytkownikow: ${member.guild.memberCount}`);
-    client.channels.cache.get('805169880403673108').setName(`Online: ${member.guild.members.cache.filter(m => !m.user.bot).size}`);
-})
-client.on('guildMemberRemove', member => {
-    if(member.guild.id !== '753310847635292250') return;
-    client.channels.cache.get('753310847635292250').setName(`Uzytkownikow: ${member.guild.memberCount}`);
-    client.channels.cache.get('805169880403673108').setName(`Online: ${member.guild.members.cache.filter(m => !m.user.bot).size}`);
-})
-/*
-client.on('guildMemberAdd', member => {
-    // Send the message to a designated channel on a server:
-    const channel = member.guild.channels.cache.find(ch => ch.name === 'welcome');
-    // Do nothing if the channel wasn't found on this server
-    if (!channel) return;
-    // Send the message, mentioning the member
-    channel.send(`Welcome to the server, ${member}`);
-});*/
 
 client.on('message', message => {
     // If the message is "what is my avatar"
@@ -400,7 +361,7 @@ client.on('message', message => {
                 .catch(console.error);
             break;
         case prefix + 'ark': //update presence
-            client.user.setActivity('ARK: Survival Evolved', {
+            client.user.setActivity('BigGames', {
                 type: 'PLAYING'
             })
                 .then(presence => console.log(`Activity set to ${presence.activities[0].name}`))

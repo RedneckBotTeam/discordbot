@@ -89,6 +89,12 @@ client.on('ready', () => {
             sentembed4.react(age[i]);
         }
     });
+        const guild = client.guilds.cache.get('753310847635292250');
+        setInterval(() => {
+            const memberCount = guild.memberCount;
+            const channel = guild.channels.cache.get('823249027688562728');
+            channel.setName(`Members: ${memberCount.toLocaleString()}`);
+        }, 5000);
 });
 client.on('messageReactionAdd', async (reactionReaction, user) => {
 
@@ -328,6 +334,7 @@ client.on('messageReactionRemove', async (reactionReaction, user) => {
     }});
 
 
+
 client.on('message', message => {
     // If the message is "what is my avatar"
     switch (message.content) {
@@ -362,7 +369,9 @@ client.on('message', message => {
             break;
         case prefix + 'ark': //update presence
             client.user.setActivity('BigGames', {
-                type: 'PLAYING'
+                type: 'PLAYING',
+                state: "BigGames",
+                details: "Najlepsze Serwery Ark w Polsce",
             })
                 .then(presence => console.log(`Activity set to ${presence.activities[0].name}`))
                 .catch(console.error);
